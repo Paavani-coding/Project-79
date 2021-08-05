@@ -1,0 +1,111 @@
+<html>
+
+<head>
+    <title>Pizzeria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <center>
+        <section id="Welcome">
+            <div>
+                <h1>Pizzeria</h1>
+                <img id="pizza_image" src="http://assets.stickpng.com/images/58738081f3a71010b5e8ef3a.png">
+            </div>
+        </section>
+        <section id="Dishes">
+            <div>
+                <button id="btn_show" onclick="show()"> Show Menu Items</button>
+                <h3 id="items"></h3>
+                <img id="pizza_2" src="http://assets.stickpng.com/images/58738081f3a71010b5e8ef3a.png">
+            </div>
+        </section>
+        <section id="Suggestions">
+            <input id="add_item" type="text" placeholder="Add toppings">
+            <button id="add" onclick="add()">Add toppings</button>
+            <div id="cards">
+            </div>
+            <p></p>
+        </section>
+</body>
+</center>
+<style>
+    #pizza_image {
+        width: 1500px;
+        height: 500px;
+    }
+    
+    #pizza_2 {
+        width: 700px;
+        height: 500px;
+    }
+    
+    section {
+        background: linear-gradient(deeppink, cyan);
+    }
+    
+    #btn_show {
+        margin-left: 900px;
+        margin-top: 25px;
+        background-color: lightblue;
+        color: black;
+        font-size: 35px;
+        border: black 5px solid;
+        border-radius: 10px;
+    }
+    
+    #items {
+        margin-left: 900px;
+        margin-top: 25px;
+    }
+    
+    h3,
+    p,
+    button,
+    input,
+    h1 {
+        font-family: 'Indie Flower';
+    }
+</style>
+<script>
+    var menu_list_array = [" Tandoori Pizza", " Deluxe Veggies Pizza", " Paneer Tikka Pizza", " Veg Supreme Pizza"]
+
+    function show() {
+        var htmldata;
+        htmldata = "<ol class=menulist'>"
+        menu_list_array.sort();
+        for (var i = 0; i < menu_list_array.length; i++) {
+            htmldata = htmldata + '<li>' + menu_list_array[i] + '</li>'
+        }
+        htmldata = htmldata + "</ol>"
+        document.getElementById("items").innerHTML = htmldata;
+    }
+
+    function add() {
+        var htmldata;
+        var item = document.getElementById("add_item").value;
+        menu_list_array.sort();
+        htmldata = "<section class='cards'>"
+        for (var i = 0; i < menu_list_array.length; i++) {
+            htmldata = htmldata + '<div class="cards">' + '<img src="https://images.vexels.com/media/users/3/219961/isolated/lists/475c72f8184f52fe52aeed3f72e38ae8-pizza-slice-mushroom-pepperoni-flat.png"/>' + menu_list_array[i] + '</div>'
+
+        }
+        htmldata = htmldata + '</section>'
+        document.getElementById("cards").innerHTML = htmldata;
+        menu_list_array.push("add_item");
+        var htmldata;
+        var item = document.getElementById("add_item").value;
+        menu_list_array.sort();
+        htmldata = "<section class='cards'>"
+        for (var i = 0; i < menu_list_array.length; i++) {
+            htmldata = htmldata + '<div class="cards">' + '<img src="https://images.vexels.com/media/users/3/219961/isolated/lists/475c72f8184f52fe52aeed3f72e38ae8-pizza-slice-mushroom-pepperoni-flat.png"/>' + menu_list_array[i] + '</div>'
+
+        }
+        htmldata = htmldata + '</section>'
+        document.getElementById("cards").innerHTML = htmldata;
+    }
+</script>
+
+</html>
